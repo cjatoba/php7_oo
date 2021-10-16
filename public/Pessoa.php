@@ -4,48 +4,48 @@ class Pessoa{
 
     private string $nome;
     private int $idade;
+    private Endereco $endereco;
     static int $numeroDePessoas = 0;
 
-    public function __construct(string $nome, int $idade)
+    public function __construct(string $nome, int $idade, Endereco $endereco)
     {
         $this->nome = $nome;
         $this->idade = $idade;
         $this->validaIdade($idade);
-        //o self é utilizado para fazer referencia a um atributo static
+        $this->endereco = $endereco;
         self::$numeroDePessoas++;
     }
 
-    //Chamado quando se utiliza o unset em um objeto desta classe
     public function __destruct()
     {
         self::$numeroDePessoas--;
     }
 
-    public function getNome()
+    public function getNome(): string
     {
         return $this->nome;
     }
 
-    public function setNome(string $nome)
+    public function setNome(string $nome): void
     {
         $this->nome = $nome;
     }
 
-    public function getIdade()
+    public function getIdade(): int
     {
-        return $this->nome;
+        return $this->idade;
     }
 
-    public function setIdade(int $idade)
+    public function setIdade(int $idade): void
     {
         $this->idade = $idade;
     }
 
-    public static function getNumeroDePessoas() {
+    public static function getNumeroDePessoas(): int {
         return self::$numeroDePessoas;
     }
 
-    private function validaIdade(int $idade)
+    private function validaIdade(int $idade): void
     {
         if ($this->idade > 0 AND $this->idade < 120) {
             $this->idade = $idade;

@@ -1,11 +1,18 @@
 <?php
 
 require_once 'Pessoa.php';
+require_once 'Endereco.php';
 
-$pessoa1 = new Pessoa('Nome da pessoa 1', 30);
-$pessoa2 = new Pessoa('Nome da pessoa 2', 40);
+$endereco = new Endereco('SP', 'Praia Grande', 'Rua 1', '200', 'Boqueirão', '11112-654');
 
-//Destroi o a instância da classe Pesso e chama o método __destruct na classe Pessoa
-unset($pessoa2);
+$pessoa1 = new Pessoa('Nome da pessoa 1', 30, $endereco);
+$pessoa2 = new Pessoa('Nome da pessoa 2', 40, $endereco);
+$pessoa3 = new Pessoa('Nome da pessoa 2', 40, $endereco);
 
 echo '<p>Número de pessoas:' . Pessoa::getNumeroDePessoas() . '</p>';
+
+echo '<pre>';
+    var_dump($pessoa1);
+    var_dump($pessoa2);
+    var_dump($pessoa3);
+echo '</pre>';
