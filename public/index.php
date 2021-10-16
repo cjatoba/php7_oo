@@ -1,7 +1,7 @@
 <?php
 
-require_once 'Pessoa.php';
-require_once 'Endereco.php';
+require_once '../src/Pessoa.php';
+require_once '../src/Endereco.php';
 
 $endereco = new Endereco('SP', 'Praia Grande', 'Rua 1', '200', 'Boqueirão', '11112-654');
 
